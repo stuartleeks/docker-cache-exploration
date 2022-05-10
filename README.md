@@ -30,8 +30,8 @@ To run a test, run `make <name>`, e.g. `make 5d-build-BUILDKIT_INLINE_CACHE-mult
 
 ## Summary
 
-- `docker build` doesn't works with just `--cache=from` (same for `buildx`)
-- `docker build` does works if the build/pushed image was built with `--build-arg BUILDKIT_INLINE_CACHE=1` (same for `buildx`) => Need to be able to set this
+- `docker build` doesn't work with just `--cache=from` (same for `buildx`)
+- `docker build` does work if the build/pushed image was built with `--build-arg BUILDKIT_INLINE_CACHE=1` (same for `buildx`) => Need to be able to set this
 - `docker build[x]` seem to fail if building `image1` then `image2` based off it and pushing `image2`
 - `docker build[x]` works with multistage build (all layers are used in cache)
 
@@ -48,11 +48,11 @@ Single build step
 
 `docker buildx` specifying `--cache-from` - not successful
 
-2a added `--build-arg BUILKIT_INLINE_CACHE=1` which _was_ successful.
+2a added `--build-arg BUILDKIT_INLINE_CACHE=1` which _was_ successful.
 
 ### Notes-3
 
-3 added `--build-arg BUILKIT_INLINE_CACHE=1` to the approach from 1, and _was_ successful.
+3 added `--build-arg BUILDKIT_INLINE_CACHE=1` to the approach from 1, and _was_ successful.
 3a added a re-tagging step and was still successful
 
 3b added a step to derive an image from the first step to mimic container-features and this _was not_ successful
@@ -68,7 +68,7 @@ Single build step
 5 explores the same two stages as 3b and 4, but as a multistage build (single `Dockerfile`) and this _was_ successful
 5a added in re-tagging and was still successful
 5b was the same as 5a but without the `mode=max` option and was still successful
-5c reverted to the `--build-arg BUILKIT_INLINE_CACHE=1` approach and was still successful
+5c reverted to the `--build-arg BUILDKIT_INLINE_CACHE=1` approach and was still successful
 5d switched to `docker build` and was still successful
 
 
