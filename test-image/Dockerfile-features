@@ -1,0 +1,5 @@
+## TODO - pass in the base image name!
+FROM ghcr.io/stuartleeks/test-docker-cache-temp
+
+RUN sleep 2
+COPY feature-file /

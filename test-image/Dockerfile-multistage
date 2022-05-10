@@ -1,0 +1,11 @@
+## TODO - pass in the base image name!
+FROM alpine as base
+
+RUN sleep 2
+COPY file1 /
+COPY file2 /
+
+FROM base
+
+RUN sleep 2
+COPY feature-file /
