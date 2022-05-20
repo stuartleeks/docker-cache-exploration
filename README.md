@@ -28,14 +28,14 @@ echo $CR_PAT | gh auth login  --with-token
 To run a test, run `make <name>`, e.g. `make 5d-build-BUILDKIT_INLINE_CACHE-multistage_image-retag`.
 
 
-## Summary
+## Summary - Docker
 
 - `docker build` doesn't work with just `--cache=from` (same for `buildx`)
 - `docker build` does work if the build/pushed image was built with `--build-arg BUILDKIT_INLINE_CACHE=1` (same for `buildx`) => Need to be able to set this
 - `docker build[x]` seem to fail if building `image1` then `image2` based off it and pushing `image2`
 - `docker build[x]` works with multistage build (all layers are used in cache)
 
-## Notes
+## Notes - Docker
 
 This section walks through the various tests. Each section corresponds to the scripts with the matching number, i.e. `notes-3` discusses the scripts `3*.sh`.
 
@@ -88,3 +88,6 @@ https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/c
 
 # bug in gh api to delete package
 https://github.com/cli/cli/issues/3937
+
+
+
